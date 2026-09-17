@@ -1,0 +1,27 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--fb-bg);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+}
+
+.fill > * {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* dark veil centred on the content so text stays readable; strength set per background */
+.veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(70% 60% at 50% 45%, var(--fb-bg) 0%, transparent 100%);
+}

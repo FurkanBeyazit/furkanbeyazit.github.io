@@ -1,0 +1,106 @@
+@import './variants.css';
+
+/**
+ * Global design tokens (HeroUI-flavoured) layered on top of Infima.
+ */
+
+:root {
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ifm-heading-font-weight: 700;
+  --ifm-navbar-shadow: none;
+
+  /* accent */
+  --fb-accent: #7c3aed;
+  --fb-accent-2: #06b6d4;
+  --fb-gradient: linear-gradient(135deg, var(--fb-accent), var(--fb-accent-2));
+
+  /* light palette */
+  --fb-bg: #f7f7fb;
+  --fb-bg-elev: #ffffff;
+  --fb-fg: #111827;
+  --fb-fg-muted: #6b7280;
+  --fb-border: rgba(17, 24, 39, 0.08);
+  --fb-card: rgba(255, 255, 255, 0.72);
+  --fb-chip: rgba(124, 58, 237, 0.08);
+  --fb-chip-fg: #5b21b6;
+  --fb-glow: rgba(124, 58, 237, 0.18);
+
+  --ifm-color-primary: #7c3aed;
+  --ifm-color-primary-dark: #6d28d9;
+  --ifm-color-primary-darker: #5b21b6;
+  --ifm-color-primary-darkest: #4c1d95;
+  --ifm-color-primary-light: #8b5cf6;
+  --ifm-color-primary-lighter: #a78bfa;
+  --ifm-color-primary-lightest: #c4b5fd;
+  --ifm-background-color: var(--fb-bg);
+  --ifm-navbar-background-color: rgba(247, 247, 251, 0.75);
+  --ifm-footer-background-color: transparent;
+}
+
+[data-theme='dark'] {
+  --fb-bg: #0b0e14;
+  --fb-bg-elev: #12161f;
+  --fb-fg: #f4f4f5;
+  --fb-fg-muted: #a1a1aa;
+  --fb-border: rgba(255, 255, 255, 0.08);
+  --fb-card: rgba(22, 27, 38, 0.62);
+  --fb-chip: rgba(139, 92, 246, 0.14);
+  --fb-chip-fg: #c4b5fd;
+  --fb-glow: rgba(124, 58, 237, 0.28);
+
+  --ifm-color-primary: #a78bfa;
+  --ifm-color-primary-dark: #8b5cf6;
+  --ifm-color-primary-darker: #7c3aed;
+  --ifm-color-primary-darkest: #6d28d9;
+  --ifm-color-primary-light: #c4b5fd;
+  --ifm-color-primary-lighter: #ddd6fe;
+  --ifm-color-primary-lightest: #ede9fe;
+  --ifm-background-color: var(--fb-bg);
+  --ifm-navbar-background-color: rgba(11, 14, 20, 0.7);
+  --ifm-footer-background-color: transparent;
+}
+
+html {
+  background: var(--fb-bg);
+  color: var(--fb-fg);
+  scroll-behavior: smooth;
+}
+
+
+.navbar {
+  /* no backdrop-filter: it forces the fixed WebGL background to recomposite on scroll */
+  background: color-mix(in srgb, var(--fb-bg) 90%, transparent);
+  border-bottom: 1px solid var(--fb-border);
+}
+
+.navbar__title {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.footer,
+.footer--dark {
+  --ifm-footer-background-color: transparent;
+  background: transparent;
+  border-top: 1px solid var(--fb-border);
+  color: var(--fb-fg-muted);
+  padding: 1.5rem 0;
+}
+
+.footer__copyright {
+  font-size: 0.85rem;
+}
+
+/* shared text helpers */
+.fb-gradient-text {
+  background: var(--fb-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.fb-muted {
+  color: var(--fb-fg-muted);
+}

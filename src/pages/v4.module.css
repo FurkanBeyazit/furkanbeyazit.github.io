@@ -1,0 +1,206 @@
+.page {
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 4rem;
+}
+
+.masthead {
+  border-bottom: 1px solid var(--fb-fg);
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.kicker {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fb-fg-muted);
+  margin: 0 0 1rem;
+}
+
+.name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.2rem;
+}
+
+.name em {
+  font-style: italic;
+  color: var(--fb-accent);
+}
+
+.lede {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: end;
+}
+
+@media (max-width: 760px) {
+  .lede {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lede p {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.meta {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+  color: var(--fb-fg-muted);
+  line-height: 1.9;
+}
+
+.meta a {
+  color: var(--fb-fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4rem;
+}
+
+.sub {
+  color: var(--fb-fg-muted);
+  margin: 0 0 2rem;
+  max-width: 62ch;
+}
+
+.study {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2.2rem 0;
+  border-top: 1px solid var(--fb-border);
+}
+
+.study:nth-child(even) > figure {
+  order: 2;
+}
+
+@media (max-width: 760px) {
+  .study {
+    grid-template-columns: 1fr;
+  }
+  .study:nth-child(even) > figure {
+    order: 0;
+  }
+}
+
+.study figure {
+  margin: 0;
+}
+
+.study img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 30px 50px -35px rgba(0, 0, 0, 0.5);
+}
+
+.num {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  color: var(--fb-accent);
+  margin: 0 0 0.4rem;
+}
+
+.study h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.8rem;
+}
+
+.study p {
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.stack {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  color: var(--fb-fg-muted);
+  letter-spacing: 0.02em;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--fb-fg);
+  margin-top: 3rem;
+}
+
+@media (max-width: 760px) {
+  .cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.colTitle {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fb-fg-muted);
+  margin: 0 0 1rem;
+}
+
+.plain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plain li {
+  padding: 0.55rem 0;
+  border-bottom: 1px dotted var(--fb-border);
+  font-size: 0.93rem;
+}
+
+.plain li small {
+  display: block;
+  color: var(--fb-fg-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.74rem;
+}
+
+.skillLine {
+  margin: 0 0 0.6rem;
+  font-size: 0.93rem;
+}
+
+.skillLine b {
+  font-weight: 600;
+}
+
+.contact {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--fb-fg);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact .h2 {
+  margin: 0;
+}
