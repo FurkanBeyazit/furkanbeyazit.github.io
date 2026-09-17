@@ -1,0 +1,212 @@
+/* ---------- Card ---------- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 1px solid var(--fb-border);
+  background: var(--fb-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--fb-accent) 45%, var(--fb-border));
+  box-shadow: 0 18px 40px -20px var(--fb-glow);
+}
+
+.cardImage {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--fb-border);
+  background: var(--fb-bg-elev);
+}
+
+.cardBody {
+  padding: 1.1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cardText {
+  margin: 0;
+  color: var(--fb-fg-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.cardStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+/* ---------- Chip ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--fb-chip);
+  color: var(--fb-chip-fg);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.chipOutline {
+  background: transparent;
+  border-color: var(--fb-border);
+  color: var(--fb-fg);
+}
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btnSolid {
+  background: var(--fb-gradient);
+  color: #fff !important;
+  box-shadow: 0 10px 25px -12px var(--fb-glow);
+}
+
+.btnGhost {
+  background: transparent;
+  border-color: var(--fb-border);
+  color: var(--fb-fg) !important;
+}
+
+.btnGhost:hover {
+  background: var(--fb-chip);
+}
+
+/* ---------- Section ---------- */
+.section {
+  padding: 3.5rem 0;
+}
+
+.sectionHead {
+  margin-bottom: 1.6rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+}
+
+.sectionSub {
+  margin: 0;
+  color: var(--fb-fg-muted);
+  max-width: 60ch;
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  border-left: 1px solid var(--fb-border);
+}
+
+.timelineItem {
+  position: relative;
+  padding: 0 0 1.5rem 1.5rem;
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.45rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--fb-gradient);
+  box-shadow: 0 0 0 4px var(--fb-bg);
+}
+
+.timelinePeriod {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  color: var(--fb-fg-muted);
+}
+
+.timelineOrg {
+  font-weight: 700;
+  margin: 0.1rem 0 0;
+}
+
+.timelineRole {
+  margin: 0;
+  color: var(--fb-fg);
+  font-size: 0.95rem;
+}
+
+.timelineNote {
+  margin: 0.15rem 0 0;
+  color: var(--fb-fg-muted);
+  font-size: 0.88rem;
+}
+
+/* ---------- Skills ---------- */
+.skillGroups {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.skillGroup {
+  border: 1px solid var(--fb-border);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  background: var(--fb-card);
+}
+
+.skillGroupTitle {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fb-fg-muted);
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+}
+
+.skillItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}

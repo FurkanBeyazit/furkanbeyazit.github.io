@@ -1,0 +1,134 @@
+.mono {
+  font-variant-ligatures: none;
+}
+
+/* ShinyText */
+.shiny {
+  background: linear-gradient(120deg, var(--fb-fg) 40%, #fff 50%, var(--fb-fg) 60%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* GradientText */
+.gradient {
+  background: linear-gradient(90deg, #a78bfa, #22d3ee, #f472b6, #a78bfa);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: flow 6s linear infinite;
+}
+
+@keyframes flow {
+  to {
+    background-position: 300% 0;
+  }
+}
+
+/* GlitchText */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+}
+
+.glitch::before {
+  color: #22d3ee;
+  left: 2px;
+  text-shadow: -1px 0 #22d3ee;
+  animation: glitchA 2.6s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: #f472b6;
+  left: -2px;
+  text-shadow: 1px 0 #f472b6;
+  animation: glitchB 3.1s infinite linear alternate-reverse;
+}
+
+@keyframes glitchA {
+  0% { clip-path: inset(10% 0 80% 0); }
+  20% { clip-path: inset(60% 0 10% 0); }
+  40% { clip-path: inset(30% 0 50% 0); }
+  60% { clip-path: inset(80% 0 5% 0); }
+  80% { clip-path: inset(45% 0 40% 0); }
+  100% { clip-path: inset(5% 0 85% 0); }
+}
+
+@keyframes glitchB {
+  0% { clip-path: inset(70% 0 15% 0); }
+  20% { clip-path: inset(15% 0 70% 0); }
+  40% { clip-path: inset(50% 0 30% 0); }
+  60% { clip-path: inset(5% 0 85% 0); }
+  80% { clip-path: inset(35% 0 45% 0); }
+  100% { clip-path: inset(85% 0 5% 0); }
+}
+
+/* Typewriter caret */
+.caret::after {
+  content: '▍';
+  color: var(--fb-accent-2);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* BlurText */
+.blurWord {
+  display: inline-block;
+  filter: blur(8px);
+  opacity: 0;
+  transform: translateY(6px);
+  animation: blurIn 0.7s ease forwards;
+}
+
+@keyframes blurIn {
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shiny,
+  .gradient,
+  .glitch::before,
+  .glitch::after,
+  .blurWord {
+    animation: none;
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+  .glitch::before,
+  .glitch::after {
+    display: none;
+  }
+}

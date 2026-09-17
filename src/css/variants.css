@@ -1,0 +1,128 @@
+/* =========================================================
+   Font axis — switches the mono/sans pair used by the home page
+   ========================================================= */
+:root {
+  --fb-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fb-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+
+[data-font='fira'] { --fb-mono: 'Fira Code', ui-monospace, monospace; }
+[data-font='plex'] { --fb-mono: 'IBM Plex Mono', ui-monospace, monospace; }
+[data-font='space-mono'] { --fb-mono: 'Space Mono', ui-monospace, monospace; }
+[data-font='source-code'] { --fb-mono: 'Source Code Pro', ui-monospace, monospace; }
+/* sans-first fonts: body text and headings go sans, prompts stay mono */
+[data-font='inter'] { --fb-mono: 'Inter', system-ui, sans-serif; --fb-sans: 'Inter', system-ui, sans-serif; }
+[data-font='grotesk'] { --fb-mono: 'Space Grotesk', system-ui, sans-serif; --fb-sans: 'Space Grotesk', system-ui, sans-serif; }
+[data-font='dm-sans'] { --fb-mono: 'DM Sans', system-ui, sans-serif; --fb-sans: 'DM Sans', system-ui, sans-serif; }
+
+/* =========================================================
+   Card axis — .fb-card is the project / experience card on the home page
+   ========================================================= */
+.fb-card {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  isolation: isolate;
+}
+
+/* spotlight: radial glow follows the cursor (SpotlightCard) */
+[data-card='spotlight'] .fb-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(260px circle at var(--mx) var(--my), color-mix(in srgb, var(--fb-accent) 28%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: -1;
+}
+[data-card='spotlight'] .fb-card:hover::before {
+  opacity: 1;
+}
+
+/* glass: frosted, brighter border, soft inner highlight */
+[data-card='glass'] .fb-card {
+  background: color-mix(in srgb, var(--fb-bg-elev) 45%, transparent) !important;
+  border-color: color-mix(in srgb, #fff 18%, transparent) !important;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 12%, transparent), 0 20px 50px -30px rgba(0, 0, 0, 0.6);
+  border-radius: 18px !important;
+}
+
+/* star-border: animated gradient border running around the card (StarBorder) */
+[data-card='star-border'] .fb-card {
+  border-color: transparent !important;
+  background:
+    linear-gradient(var(--fb-bg-elev), var(--fb-bg-elev)) padding-box,
+    conic-gradient(from var(--fb-angle, 0deg), transparent 0 70%, var(--fb-accent-2) 80%, var(--fb-accent) 90%, transparent 100%) border-box !important;
+  animation: fb-spin 4s linear infinite;
+}
+@property --fb-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes fb-spin {
+  to {
+    --fb-angle: 360deg;
+  }
+}
+
+/* glare: diagonal light sweep on hover (GlareHover) */
+[data-card='glare'] .fb-card {
+  overflow: hidden;
+}
+[data-card='glare'] .fb-card::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(115deg, transparent 40%, color-mix(in srgb, #fff 22%, transparent) 50%, transparent 60%);
+  transform: translateX(-70%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+[data-card='glare'] .fb-card:hover::after {
+  transform: translateX(70%);
+}
+
+/* tilt: 3D tilt driven by JS (--rx/--ry) (TiltedCard) */
+[data-card='tilt'] .fb-card {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.15s ease, border-color 0.2s;
+  transform-style: preserve-3d;
+}
+[data-card='tilt'] .fb-card:hover {
+  box-shadow: 0 30px 60px -30px var(--fb-glow);
+}
+
+/* outline: no fill, 1px border only */
+[data-card='outline'] .fb-card {
+  background: transparent !important;
+  border-color: color-mix(in srgb, var(--fb-fg) 18%, transparent) !important;
+  box-shadow: none !important;
+}
+[data-card='outline'] .fb-card:hover {
+  border-color: var(--fb-accent-2) !important;
+  transform: none !important;
+}
+
+/* neon: cyan glow border */
+[data-card='neon'] .fb-card {
+  border-color: color-mix(in srgb, var(--fb-accent-2) 55%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--fb-accent-2) 25%, transparent), 0 0 24px -6px var(--fb-accent-2);
+}
+[data-card='neon'] .fb-card:hover {
+  box-shadow: 0 0 0 1px var(--fb-accent-2), 0 0 40px -6px var(--fb-accent-2);
+}
+
+/* flat: solid, no blur, no hover lift */
+[data-card='flat'] .fb-card {
+  background: var(--fb-bg-elev) !important;
+  border-color: var(--fb-border) !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+}
+[data-card='flat'] .fb-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
