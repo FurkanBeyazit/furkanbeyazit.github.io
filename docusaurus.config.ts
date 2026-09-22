@@ -50,20 +50,6 @@ const config: Config = {
     navbar: {
       title: 'furkan.dev',
       items: [
-        {
-          // TODO: remove once a layout is chosen
-          type: 'dropdown',
-          label: 'Variants',
-          position: 'left',
-          items: [
-            {to: '/', label: 'Terminal + Sticky (default)'},
-            {to: '/v2', label: 'V2 · Bento'},
-            {to: '/v1', label: 'V1 · Docs-minimal'},
-            {to: '/v3', label: 'V3 · Terminal'},
-            {to: '/v4', label: 'V4 · Editorial'},
-            {to: '/v5', label: 'V5 · Sticky profile'},
-          ],
-        },
         {type: 'localeDropdown', position: 'right'},
         {href: 'https://github.com/FurkanBeyazit', label: 'GitHub', position: 'right'},
         {href: 'https://www.linkedin.com/in/furkanbyagiz/', label: 'LinkedIn', position: 'right'},

@@ -103,13 +103,14 @@
 }
 
 .btnGhost {
-  background: transparent;
-  border-color: var(--fb-border);
+  background: color-mix(in srgb, var(--fb-frame) 8%, transparent);
+  border-color: color-mix(in srgb, var(--fb-frame) 50%, transparent);
   color: var(--fb-fg) !important;
 }
 
 .btnGhost:hover {
-  background: var(--fb-chip);
+  background: color-mix(in srgb, var(--fb-frame) 16%, transparent);
+  border-color: var(--fb-frame);
 }
 
 /* ---------- Section ---------- */

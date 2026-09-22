@@ -25,6 +25,7 @@
   --fb-chip: rgba(124, 58, 237, 0.08);
   --fb-chip-fg: #5b21b6;
   --fb-glow: rgba(124, 58, 237, 0.18);
+  --fb-frame: #166534;
 
   --ifm-color-primary: #7c3aed;
   --ifm-color-primary-dark: #6d28d9;
@@ -48,6 +49,7 @@
   --fb-chip: rgba(139, 92, 246, 0.14);
   --fb-chip-fg: #c4b5fd;
   --fb-glow: rgba(124, 58, 237, 0.28);
+  --fb-frame: #22d3ee;
 
   --ifm-color-primary: #a78bfa;
   --ifm-color-primary-dark: #8b5cf6;
