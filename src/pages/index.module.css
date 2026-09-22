@@ -232,6 +232,10 @@
   row-gap: 0.45rem;
   font-size: 0.86rem;
   line-height: 1.6;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--fb-border);
+  background: var(--fb-card);
 }
 
 @media (max-width: 600px) {
@@ -255,17 +259,18 @@
 .exp {
   padding: 0.85rem 1rem;
   border-radius: 12px;
-  border: 1px solid transparent;
-  transition: background 0.2s, border-color 0.2s;
+  border: 1px solid var(--fb-border);
+  background: var(--fb-card);
+  transition: border-color 0.2s;
   display: grid;
   grid-template-columns: 150px 1fr;
   gap: 1rem;
   font-size: 0.88rem;
+  margin-bottom: 0.6rem;
 }
 
 .exp:hover {
-  background: var(--fb-card);
-  border-color: var(--fb-border);
+  border-color: color-mix(in srgb, var(--fb-accent-2) 50%, var(--fb-border));
 }
 
 @media (max-width: 600px) {
