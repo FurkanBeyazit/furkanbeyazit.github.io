@@ -94,6 +94,7 @@ export default function Iridescence({ color = [1, 1, 1], speed = 1.0, amplitude 
 
     function update(t) {
       animateId = requestAnimationFrame(update);
+      if (document.hidden) return;
       program.uniforms.uTime.value = t * 0.001;
       renderer.render({ scene: mesh });
     }

@@ -75,15 +75,6 @@ const profile: Profile = {
       size: 'md',
     },
     {
-      id: 'vlm-gate',
-      name: 'VLM-Gate',
-      summary:
-        'Dockerised bridge between an LLM, the VMS and a VLM: an SSE trigger is forwarded to the VMS, the VLM callback is awaited and the description is streamed back on the same connection.',
-      stack: ['FastAPI', 'SSE', 'Docker'],
-      image: '/img/projects/vlm-gate.svg',
-      size: 'sm',
-    },
-    {
       id: 'daily-report',
       name: 'Daily Report Mailer',
       summary:
@@ -93,18 +84,7 @@ const profile: Profile = {
       size: 'sm',
     },
   ],
-  earlier: [
-    {
-      id: 'ai-edu',
-      name: 'AI Educational Suite',
-      period: '2024 – 2025',
-      summary:
-        'Quiz Generation API that turns PDF/DOCX course material into MCQ and short-answer questions with GPT-4o and LangChain, plus a RAG school assistant over course and professor information using FAISS and OpenAI embeddings.',
-      stack: ['GPT-4o', 'LangChain', 'FAISS', 'FastAPI', 'MongoDB', 'Gradio'],
-      image: '/img/projects/ai-suite.png',
-      size: 'lg',
-    },
-  ],
+  earlier: [],
   experience: [
     {org: 'Danusys', role: 'Researcher — MLOps & Computer Vision', period: '2025.10 – Present', note: 'CCTV analytics models, fine-tuning, MLOps pipeline'},
     {org: 'Petobio', role: 'AI Engineer Intern', period: '2024.07 – 2025.01', note: 'LLM / RAG diagnostic assistant for veterinarians, server & DB'},

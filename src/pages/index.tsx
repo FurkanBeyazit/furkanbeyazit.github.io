@@ -37,7 +37,12 @@ function useActiveSection(): SectionId {
 /** Feeds cursor position into .fb-card CSS vars for the spotlight / tilt card styles. */
 function useCardPointer() {
   useEffect(() => {
-    const onMove = (e: MouseEvent) => {
+    let raf = 0;
+    let pending: MouseEvent | null = null;
+    const apply = () => {
+      raf = 0;
+      const e = pending;
+      if (!e) return;
       const card = (e.target as HTMLElement).closest?.('.fb-card') as HTMLElement | null;
       if (!card) return;
       const r = card.getBoundingClientRect();
@@ -48,16 +53,21 @@ function useCardPointer() {
       card.style.setProperty('--rx', `${(0.5 - py) * 10}deg`);
       card.style.setProperty('--ry', `${(px - 0.5) * 10}deg`);
     };
+    const onMove = (e: MouseEvent) => {
+      pending = e;
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
     const onLeave = (e: MouseEvent) => {
       const card = (e.target as HTMLElement).closest?.('.fb-card') as HTMLElement | null;
       card?.style.setProperty('--rx', '0deg');
       card?.style.setProperty('--ry', '0deg');
     };
-    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mousemove', onMove, {passive: true});
     document.addEventListener('mouseout', onLeave);
     return () => {
       document.removeEventListener('mousemove', onMove);
       document.removeEventListener('mouseout', onLeave);
+      if (raf) cancelAnimationFrame(raf);
     };
   }, []);
 }
@@ -113,7 +123,7 @@ function HomeInner() {
 
   const nav: {id: SectionId; cmd: string; label: string}[] = [
     {id: 'projects', cmd: 'ls', label: labels.projects},
-    {id: 'earlier', cmd: 'ls', label: labels.earlier},
+    ...(p.earlier.length ? [{id: 'earlier' as const, cmd: 'ls', label: labels.earlier}] : []),
     {id: 'skills', cmd: 'cat', label: labels.skills},
     {id: 'experience', cmd: 'git log', label: labels.experience},
     {id: 'contact', cmd: 'open', label: labels.contact},
@@ -165,14 +175,16 @@ function HomeInner() {
             ))}
           </section>
 
-          <section id="earlier" className={styles.block}>
-            <p className={styles.blockHead}>
-              ls <b>projects/earlier</b>
-            </p>
-            {p.earlier.map((pr) => (
-              <ProjectEntry key={pr.id} project={pr} />
-            ))}
-          </section>
+          {p.earlier.length > 0 && (
+            <section id="earlier" className={styles.block}>
+              <p className={styles.blockHead}>
+                ls <b>projects/earlier</b>
+              </p>
+              {p.earlier.map((pr) => (
+                <ProjectEntry key={pr.id} project={pr} />
+              ))}
+            </section>
+          )}
 
           <section id="skills" className={styles.block}>
             <p className={styles.blockHead}>

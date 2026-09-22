@@ -75,15 +75,6 @@ const profile: Profile = {
       size: 'md',
     },
     {
-      id: 'vlm-gate',
-      name: 'VLM-Gate',
-      summary:
-        'LLM ↔ VMS ↔ VLM 사이의 Docker 브리지 서비스: SSE 트리거를 VMS로 전달하고 VLM 콜백을 기다린 뒤 같은 연결로 설명 결과를 스트리밍.',
-      stack: ['FastAPI', 'SSE', 'Docker'],
-      image: '/img/projects/vlm-gate.svg',
-      size: 'sm',
-    },
-    {
       id: 'daily-report',
       name: '일일 통계 메일링',
       summary:
@@ -93,18 +84,7 @@ const profile: Profile = {
       size: 'sm',
     },
   ],
-  earlier: [
-    {
-      id: 'ai-edu',
-      name: 'AI 교육 솔루션',
-      period: '2024 – 2025',
-      summary:
-        'PDF/DOCX 강의 자료에서 GPT-4o·LangChain으로 객관식·단답형 문제를 생성하는 Quiz Generation API와, FAISS·OpenAI 임베딩으로 강의·교수 정보를 질의응답하는 RAG 학교 어시스턴트.',
-      stack: ['GPT-4o', 'LangChain', 'FAISS', 'FastAPI', 'MongoDB', 'Gradio'],
-      image: '/img/projects/ai-suite.png',
-      size: 'lg',
-    },
-  ],
+  earlier: [],
   experience: [
     {org: '㈜다누시스', role: '연구원 — MLOps & Computer Vision', period: '2025.10 – 현재', note: 'CCTV 영상 분석 모델 개발, 파인튜닝, MLOps 파이프라인 구축'},
     {org: '㈜페토바이오', role: 'AI Engineer Intern', period: '2024.07 – 2025.01', note: '수의사용 LLM/RAG 진단 서비스, 서버 및 DB 관리'},

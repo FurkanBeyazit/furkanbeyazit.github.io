@@ -100,7 +100,7 @@ export default function DarkVeil({
     const parent = canvas.parentElement;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: Math.min(window.devicePixelRatio, 1.5),
       canvas
     });
 
@@ -138,6 +138,8 @@ export default function DarkVeil({
     let frame = 0;
 
     const loop = () => {
+      frame = requestAnimationFrame(loop);
+      if (document.hidden) return;
       program.uniforms.uTime.value = ((performance.now() - start) / 1000) * speed;
       program.uniforms.uHueShift.value = hueShift;
       program.uniforms.uNoise.value = noiseIntensity;
@@ -146,7 +148,6 @@ export default function DarkVeil({
       program.uniforms.uWarp.value = warpAmount;
       program.uniforms.uLightMode.value = lightMode ? 1 : 0;
       renderer.render({ scene: mesh });
-      frame = requestAnimationFrame(loop);
     };
 
     loop();

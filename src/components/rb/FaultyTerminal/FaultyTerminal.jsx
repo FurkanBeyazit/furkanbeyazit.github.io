@@ -278,7 +278,7 @@ export default function FaultyTerminal({
     const ctn = containerRef.current;
     if (!ctn) return;
 
-    const renderer = new Renderer({ dpr: dpr ?? Math.min(window.devicePixelRatio || 1, 2) });
+    const renderer = new Renderer({ dpr: dpr ?? Math.min(window.devicePixelRatio || 1, 1) });
     rendererRef.current = renderer;
     const gl = renderer.gl;
     gl.clearColor(lightMode ? 1 : 0, lightMode ? 1 : 0, lightMode ? 1 : 0, 1);
@@ -336,6 +336,8 @@ export default function FaultyTerminal({
 
     const update = t => {
       rafRef.current = requestAnimationFrame(update);
+
+      if (document.hidden) return;
 
       if (pageLoadAnimation && loadAnimationStartRef.current === 0) {
         loadAnimationStartRef.current = t;
